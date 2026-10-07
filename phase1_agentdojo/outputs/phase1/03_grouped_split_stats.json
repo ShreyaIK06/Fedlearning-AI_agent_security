@@ -1,0 +1,29 @@
+{
+  "step": "phase1_03_grouped_split",
+  "method": "StratifiedGroupKFold(n_splits=5) x2, grouped on user_prompt, stratified on security",
+  "random_state": 42,
+  "total_rows": 32911,
+  "total_unique_user_prompts": 121,
+  "train": {
+    "rows": 19052,
+    "unique_user_prompts": 67,
+    "security_true_pct": 15.24
+  },
+  "val": {
+    "rows": 6601,
+    "unique_user_prompts": 25,
+    "security_true_pct": 19.98
+  },
+  "test": {
+    "rows": 7258,
+    "unique_user_prompts": 29,
+    "security_true_pct": 14.08
+  },
+  "leakage_checks_passed": [
+    "train_val_prompt_disjoint",
+    "train_test_prompt_disjoint",
+    "val_test_prompt_disjoint",
+    "row_count_reconciles",
+    "no_user_prompt_lost_or_duplicated"
+  ]
+}

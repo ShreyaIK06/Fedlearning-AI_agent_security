@@ -1,0 +1,4 @@
+attack,overall_mse,categorical_accuracy,tool_precision,tool_recall,numeric_mae_std_units,label_recovery_accuracy
+DLG,86.6662,0.1806,0.0372,0.4514,6.1579,0.0833
+iDLG,0.6376,0.1389,0.0025,0.0833,1.0464,0.9167
+Inverting Gradients,0.8424,0.2361,0.0652,0.4319,1.2807,0.9167

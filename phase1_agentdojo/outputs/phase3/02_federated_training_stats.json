@@ -1,0 +1,22 @@
+{
+  "step": "phase3_02_federated_training",
+  "n_clients": 4,
+  "n_params": 30977,
+  "communication_rounds_run": 73,
+  "best_round": 63,
+  "best_val_roc_auc": 0.9235,
+  "total_bytes_transmitted": 72362272,
+  "total_bytes_transmitted_mb": 72.36,
+  "config": {
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "dropout": 0.2,
+    "num_rounds_max": 150,
+    "local_epochs": 3,
+    "local_lr": 0.001,
+    "local_batch_size": 64,
+    "early_stop_patience": 10
+  }
+}

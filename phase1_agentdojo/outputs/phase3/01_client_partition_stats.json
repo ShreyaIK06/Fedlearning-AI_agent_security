@@ -1,0 +1,28 @@
+{
+  "step": "phase3_01_partition_clients_by_suite",
+  "n_clients": 4,
+  "total_train_rows": 19052,
+  "client_stats": {
+    "banking": {
+      "n_rows": 3460,
+      "pct_of_train": 18.16,
+      "security_true_rate": 0.2309
+    },
+    "slack": {
+      "n_rows": 2680,
+      "pct_of_train": 14.07,
+      "security_true_rate": 0.3966
+    },
+    "travel": {
+      "n_rows": 3271,
+      "pct_of_train": 17.17,
+      "security_true_rate": 0.0911
+    },
+    "workspace": {
+      "n_rows": 9641,
+      "pct_of_train": 50.6,
+      "security_true_rate": 0.0772
+    }
+  },
+  "non_iid_evidence": "security_true_rate varies by suite: min=0.0772, max=0.3966 - genuine label-distribution heterogeneity across clients, matching report Part 16's expectation of non-IID clients along the suite axis."
+}

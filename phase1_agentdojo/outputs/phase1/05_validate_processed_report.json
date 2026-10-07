@@ -1,0 +1,80 @@
+{
+  "step": "phase1_05_validate_processed",
+  "checks_passed": [
+    "train_X_y_row_count_match",
+    "train_X_source_row_count_match",
+    "train_X_index_matches_source_index",
+    "train_y_index_matches_source_index",
+    "val_X_y_row_count_match",
+    "val_X_source_row_count_match",
+    "val_X_index_matches_source_index",
+    "val_y_index_matches_source_index",
+    "test_X_y_row_count_match",
+    "test_X_source_row_count_match",
+    "test_X_index_matches_source_index",
+    "test_y_index_matches_source_index",
+    "columns_identical_train_val",
+    "columns_identical_train_test",
+    "train_no_nan",
+    "train_no_inf",
+    "val_no_nan",
+    "val_no_inf",
+    "test_no_nan",
+    "test_no_inf",
+    "train_y_binary_only",
+    "val_y_binary_only",
+    "test_y_binary_only",
+    "train_categorical_rows_sum_to_6",
+    "val_categorical_rows_sum_to_6",
+    "test_categorical_rows_sum_to_6",
+    "train_numeric_features_standardized",
+    "zero_index_overlap_train_val",
+    "zero_index_overlap_train_test",
+    "zero_index_overlap_val_test",
+    "zero_user_prompt_leakage_train_val",
+    "zero_user_prompt_leakage_train_test",
+    "zero_user_prompt_leakage_val_test",
+    "total_rows_reconcile_with_scoped_population",
+    "train_X_dtype_float32",
+    "val_X_dtype_float32",
+    "test_X_dtype_float32"
+  ],
+  "checks_failed": [],
+  "all_checks_passed": true,
+  "shapes": {
+    "train": [
+      19052,
+      176
+    ],
+    "val": [
+      6601,
+      176
+    ],
+    "test": [
+      7258,
+      176
+    ]
+  },
+  "class_balance_security_true_rate": {
+    "train": 0.1524,
+    "val": 0.1998,
+    "test": 0.1408
+  },
+  "zero_variance_columns_in_train": [],
+  "train_numeric_mean": {
+    "num_messages": -3.970059879065957e-06,
+    "assistant_turns": -8.672553121868987e-06,
+    "tool_calls": -6.182964966683357e-07,
+    "tool_errors": -1.6747866311561665e-06,
+    "duration_seconds_log": 3.649439292985335e-07
+  },
+  "train_numeric_std": {
+    "num_messages": 1.0000262260437012,
+    "assistant_turns": 1.0000262260437012,
+    "tool_calls": 1.0000262260437012,
+    "tool_errors": 1.0000262260437012,
+    "duration_seconds_log": 1.0000262260437012
+  },
+  "total_rows_processed": 32911,
+  "total_rows_scoped_population": 32911
+}

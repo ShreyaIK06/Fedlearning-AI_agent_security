@@ -1,0 +1,38 @@
+{
+  "step": "phase6_01_train_dp_sgd_sweep",
+  "n_train": 19052,
+  "target_delta": 5.248792777661138e-05,
+  "sweep": {
+    "eps_1.0": {
+      "target_epsilon": 1.0,
+      "achieved_epsilon": 0.9946,
+      "target_delta": 5.248792777661138e-05,
+      "noise_multiplier": 2.2852,
+      "max_grad_norm": 1.0,
+      "epochs": 30,
+      "batch_size": 256,
+      "best_val_roc_auc": 0.9128
+    },
+    "eps_3.0": {
+      "target_epsilon": 3.0,
+      "achieved_epsilon": 2.9943,
+      "target_delta": 5.248792777661138e-05,
+      "noise_multiplier": 1.0693,
+      "max_grad_norm": 1.0,
+      "epochs": 30,
+      "batch_size": 256,
+      "best_val_roc_auc": 0.9257
+    },
+    "eps_8.0": {
+      "target_epsilon": 8.0,
+      "achieved_epsilon": 7.9931,
+      "target_delta": 5.248792777661138e-05,
+      "noise_multiplier": 0.6985,
+      "max_grad_norm": 1.0,
+      "epochs": 30,
+      "batch_size": 256,
+      "best_val_roc_auc": 0.9334
+    }
+  },
+  "opacus_module_validation_errors": []
+}

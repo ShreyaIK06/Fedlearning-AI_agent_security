@@ -1,0 +1,27 @@
+{
+  "step": "phase1_02_scope_security_target",
+  "rows_before": 36475,
+  "rows_after": 32911,
+  "rows_dropped": 3564,
+  "security_label_status_counts_before": {
+    "measured": 32911,
+    "not_applicable_placeholder": 3564
+  },
+  "security_distribution_pct_after": {
+    "False": 84.06,
+    "True": 15.94
+  },
+  "report_expected_security_true_pct": 15.86,
+  "suite_counts_after": {
+    "workspace": 15273,
+    "banking": 6513,
+    "travel": 6400,
+    "slack": 4725
+  },
+  "checks_passed": [
+    "all_scoped_rows_injection_true",
+    "all_scoped_rows_status_measured",
+    "zero_null_security_in_scope",
+    "row_drop_matches_placeholder_count"
+  ]
+}

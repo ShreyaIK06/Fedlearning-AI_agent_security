@@ -1,0 +1,46 @@
+{
+  "model": "dp_mlp_eps8",
+  "split": "test",
+  "n_samples": 7258,
+  "accuracy": 0.8928,
+  "precision": 0.6169,
+  "recall": 0.6301,
+  "f1": 0.6234,
+  "roc_auc": 0.8967,
+  "pr_auc": 0.6329,
+  "confusion_matrix": {
+    "tn": 5836,
+    "fp": 400,
+    "fn": 378,
+    "tp": 644
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9391696169938848,
+      "recall": 0.935856318152662,
+      "f1-score": 0.9375100401606425,
+      "support": 6236.0
+    },
+    "1": {
+      "precision": 0.6168582375478927,
+      "recall": 0.6301369863013698,
+      "f1-score": 0.6234269119070668,
+      "support": 1022.0
+    },
+    "accuracy": 0.8928079360705429,
+    "macro avg": {
+      "precision": 0.7780139272708888,
+      "recall": 0.782996652227016,
+      "f1-score": 0.7804684760338547,
+      "support": 7258.0
+    },
+    "weighted avg": {
+      "precision": 0.8937849063581995,
+      "recall": 0.8928079360705429,
+      "f1-score": 0.8932839507317153,
+      "support": 7258.0
+    }
+  },
+  "label_noise_ceiling_pct": 26.4,
+  "label_noise_note": "security labels flip on 26.4% of exact-repeat configurations (irreducible run-to-run stochasticity, not model error) - treat this as a ceiling on achievable accuracy, not a target to exceed without scrutiny."
+}

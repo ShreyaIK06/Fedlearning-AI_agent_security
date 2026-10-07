@@ -1,0 +1,74 @@
+{
+  "step": "phase5_01_select_victims",
+  "n_victims": 12,
+  "victims_per_suite": 3,
+  "input_dim": 176,
+  "victim_meta": [
+    {
+      "suite": "banking",
+      "row_index": 2264,
+      "true_label": 0.0
+    },
+    {
+      "suite": "banking",
+      "row_index": 308,
+      "true_label": 0.0
+    },
+    {
+      "suite": "banking",
+      "row_index": 2677,
+      "true_label": 0.0
+    },
+    {
+      "suite": "slack",
+      "row_index": 230,
+      "true_label": 0.0
+    },
+    {
+      "suite": "slack",
+      "row_index": 1868,
+      "true_label": 0.0
+    },
+    {
+      "suite": "slack",
+      "row_index": 2299,
+      "true_label": 0.0
+    },
+    {
+      "suite": "travel",
+      "row_index": 1721,
+      "true_label": 0.0
+    },
+    {
+      "suite": "travel",
+      "row_index": 3190,
+      "true_label": 0.0
+    },
+    {
+      "suite": "travel",
+      "row_index": 2406,
+      "true_label": 0.0
+    },
+    {
+      "suite": "workspace",
+      "row_index": 4947,
+      "true_label": 0.0
+    },
+    {
+      "suite": "workspace",
+      "row_index": 7576,
+      "true_label": 0.0
+    },
+    {
+      "suite": "workspace",
+      "row_index": 1235,
+      "true_label": 1.0
+    }
+  ],
+  "null_baseline_mse": {
+    "random_noise_guess_mean": 1.0758,
+    "training_mean_vector_guess_mean": 0.1215
+  },
+  "attacked_model": "D:\\MP2026-27\\agentdojo_research_pipeline\\models\\phase3\\federated_mlp_state_dict.pt",
+  "note": "Attacks target a single-example gradient at the trained federated model's final weights (the classic DLG/iDLG/IG threat model - one forward+backward pass, not a multi-epoch FedAvg delta). See src/common/gradient_leakage.py module docstring."
+}

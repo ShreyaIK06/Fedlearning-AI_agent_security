@@ -1,0 +1,22 @@
+# Pinned to what was verified working in this environment during project setup
+# (2026-08-07). Versions matter here specifically because of the numpy/tensorflow
+# conflict documented in PROJECT_PLAN.md - do not casually bump numpy without
+# re-checking that conflict.
+
+pandas==2.3.0
+numpy==2.2.6
+scikit-learn==1.7.0
+xgboost==3.2.0
+torch==2.13.0
+opacus==1.5.4
+matplotlib==3.10.3
+seaborn==0.13.2
+
+# NOTE: `flwr` (Flower) is installed in this environment but its import chain
+# is currently broken (flwr.server -> tensorboard -> tensorflow -> ml_dtypes,
+# which crashes under numpy>=2.0 with "AttributeError: _ARRAY_API not found").
+# Federated Learning (Phase 3) is implemented as a manual FedAvg loop in
+# PyTorch instead - see src/phase3/ and PROJECT_PLAN.md "Environment Findings".
+# This also better suits Phase 5 (gradient leakage), which needs direct
+# access to per-client gradients that a framework like Flower would abstract
+# away behind its Strategy/Client API.

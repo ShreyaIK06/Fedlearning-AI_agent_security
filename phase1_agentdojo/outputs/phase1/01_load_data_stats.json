@@ -1,0 +1,48 @@
+{
+  "step": "phase1_01_load_data",
+  "source": "D:\\MP2026-27\\agentdojo_research_pipeline\\data\\dataset_cleaned_final.csv",
+  "rows": 36475,
+  "columns": 20,
+  "missing_values": 0,
+  "dtypes": {
+    "suite": "object",
+    "pipeline": "object",
+    "task": "object",
+    "attack_type": "object",
+    "injection": "bool",
+    "injection_task": "object",
+    "num_messages": "int64",
+    "assistant_turns": "int64",
+    "tool_calls": "int64",
+    "tool_sequence": "object",
+    "tool_errors": "int64",
+    "user_prompt": "object",
+    "final_answer": "object",
+    "utility": "bool",
+    "security": "bool",
+    "duration_seconds": "float64",
+    "base_model": "object",
+    "defense": "object",
+    "duration_seconds_log": "float64",
+    "security_label_status": "object"
+  },
+  "security_label_status_counts": {
+    "measured": 32911,
+    "not_applicable_placeholder": 3564
+  },
+  "suite_counts": {
+    "workspace": 16653,
+    "banking": 7213,
+    "travel": 7156,
+    "slack": 5453
+  },
+  "invariant_checks_passed": [
+    "row_count",
+    "column_set_and_order",
+    "zero_missing_values",
+    "bool_dtypes_injection_utility_security",
+    "security_label_status_matches_injection",
+    "base_model_defense_reconstructs_pipeline",
+    "zero_exact_duplicates"
+  ]
+}

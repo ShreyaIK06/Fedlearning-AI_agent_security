@@ -1,0 +1,46 @@
+{
+  "model": "logistic_regression",
+  "split": "test",
+  "n_samples": 7258,
+  "accuracy": 0.8575,
+  "precision": 0.4964,
+  "recall": 0.8033,
+  "f1": 0.6136,
+  "roc_auc": 0.9133,
+  "pr_auc": 0.6468,
+  "confusion_matrix": {
+    "tn": 5403,
+    "fp": 833,
+    "fn": 201,
+    "tp": 821
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9641327623126338,
+      "recall": 0.8664207825529185,
+      "f1-score": 0.9126689189189189,
+      "support": 6236.0
+    },
+    "1": {
+      "precision": 0.496372430471584,
+      "recall": 0.8033268101761253,
+      "f1-score": 0.6136023916292974,
+      "support": 1022.0
+    },
+    "accuracy": 0.8575365114356572,
+    "macro avg": {
+      "precision": 0.7302525963921089,
+      "recall": 0.8348737963645219,
+      "f1-score": 0.7631356552741082,
+      "support": 7258.0
+    },
+    "weighted avg": {
+      "precision": 0.8982673642495925,
+      "recall": 0.8575365114356572,
+      "f1-score": 0.8705573191820777,
+      "support": 7258.0
+    }
+  },
+  "label_noise_ceiling_pct": 26.4,
+  "label_noise_note": "security labels flip on 26.4% of exact-repeat configurations (irreducible run-to-run stochasticity, not model error) - treat this as a ceiling on achievable accuracy, not a target to exceed without scrutiny."
+}

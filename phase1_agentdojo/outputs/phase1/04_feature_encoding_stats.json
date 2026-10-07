@@ -1,0 +1,59 @@
+{
+  "step": "phase1_04_feature_encoding",
+  "dos_attack_rows_by_type_train": {
+    "captcha_dos": 55,
+    "dos": 55,
+    "felony_dos": 55,
+    "offensive_email_dos": 55,
+    "swearwords_dos": 55
+  },
+  "n_categorical_onehot_features": 95,
+  "n_tool_bag_of_tools_features": 75,
+  "n_numeric_features": 5,
+  "n_is_dos_attack_features": 1,
+  "total_feature_count": 176,
+  "shapes": {
+    "X_train": [
+      19052,
+      176
+    ],
+    "X_val": [
+      6601,
+      176
+    ],
+    "X_test": [
+      7258,
+      176
+    ]
+  },
+  "unknown_category_rows": {
+    "train": 0,
+    "val": 0,
+    "test": 0
+  },
+  "y_positive_rate": {
+    "train": 0.1524,
+    "val": 0.1998,
+    "test": 0.1408
+  },
+  "excluded_columns": [
+    "pipeline",
+    "injection",
+    "security_label_status",
+    "utility",
+    "user_prompt",
+    "final_answer",
+    "attack_type",
+    "tool_sequence",
+    "duration_seconds"
+  ],
+  "encoder_reload_check_passed": true,
+  "oov_tool_tokens_val": [
+    "search_sent_emails"
+  ],
+  "oov_tool_tokens_test": [
+    "get_current_date",
+    "get_current_year",
+    "get_hotels_addresses"
+  ]
+}

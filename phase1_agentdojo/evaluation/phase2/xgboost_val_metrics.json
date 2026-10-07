@@ -1,0 +1,64 @@
+{
+  "model": "xgboost",
+  "split": "val",
+  "n_samples": 6601,
+  "accuracy": 0.9117,
+  "precision": 0.7081,
+  "recall": 0.9492,
+  "f1": 0.8111,
+  "roc_auc": 0.9792,
+  "pr_auc": 0.9227,
+  "confusion_matrix": {
+    "tn": 4766,
+    "fp": 516,
+    "fn": 67,
+    "tp": 1252
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9861369749637906,
+      "recall": 0.9023097311624385,
+      "f1-score": 0.9423628274839347,
+      "support": 5282.0
+    },
+    "1": {
+      "precision": 0.7081447963800905,
+      "recall": 0.9492039423805914,
+      "f1-score": 0.811143505021056,
+      "support": 1319.0
+    },
+    "accuracy": 0.9116800484775034,
+    "macro avg": {
+      "precision": 0.8471408856719406,
+      "recall": 0.925756836771515,
+      "f1-score": 0.8767531662524954,
+      "support": 6601.0
+    },
+    "weighted avg": {
+      "precision": 0.9305890756224938,
+      "recall": 0.9116800484775034,
+      "f1-score": 0.9161428174356789,
+      "support": 6601.0
+    }
+  },
+  "label_noise_ceiling_pct": 26.4,
+  "label_noise_note": "security labels flip on 26.4% of exact-repeat configurations (irreducible run-to-run stochasticity, not model error) - treat this as a ceiling on achievable accuracy, not a target to exceed without scrutiny.",
+  "scale_pos_weight": 5.5606,
+  "top_feature_importances": {
+    "tool__get_all_restaurants_in_city": 0.0891,
+    "tool__get_rating_reviews_for_restaurants": 0.0815,
+    "base_model_local": 0.0502,
+    "tool_calls": 0.0317,
+    "attack_family_direct": 0.0266,
+    "suite_workspace": 0.025,
+    "suite_travel": 0.0247,
+    "injection_task_injection_task_5": 0.018,
+    "is_dos_attack": 0.0171,
+    "tool__get_hotels_prices": 0.0168,
+    "tool__reserve_hotel": 0.0155,
+    "tool__remove_user_from_slack": 0.015,
+    "tool__post_webpage": 0.0149,
+    "tool__delete_file": 0.0143,
+    "injection_task_injection_task_2": 0.0142
+  }
+}

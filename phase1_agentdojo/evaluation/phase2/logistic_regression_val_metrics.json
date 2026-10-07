@@ -1,0 +1,70 @@
+{
+  "model": "logistic_regression",
+  "split": "val",
+  "n_samples": 6601,
+  "accuracy": 0.8431,
+  "precision": 0.5672,
+  "recall": 0.906,
+  "f1": 0.6976,
+  "roc_auc": 0.9386,
+  "pr_auc": 0.8038,
+  "confusion_matrix": {
+    "tn": 4370,
+    "fp": 912,
+    "fn": 124,
+    "tp": 1195
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9724076546506453,
+      "recall": 0.8273381294964028,
+      "f1-score": 0.894026186579378,
+      "support": 5282.0
+    },
+    "1": {
+      "precision": 0.5671570953962981,
+      "recall": 0.9059893858984079,
+      "f1-score": 0.6976065382370111,
+      "support": 1319.0
+    },
+    "accuracy": 0.8430540827147401,
+    "macro avg": {
+      "precision": 0.7697823750234717,
+      "recall": 0.8666637576974054,
+      "f1-score": 0.7958163624081946,
+      "support": 6601.0
+    },
+    "weighted avg": {
+      "precision": 0.8914312135574042,
+      "recall": 0.8430540827147401,
+      "f1-score": 0.8547779641640497,
+      "support": 6601.0
+    }
+  },
+  "label_noise_ceiling_pct": 26.4,
+  "label_noise_note": "security labels flip on 26.4% of exact-repeat configurations (irreducible run-to-run stochasticity, not model error) - treat this as a ceiling on achievable accuracy, not a target to exceed without scrutiny.",
+  "top_positive_coefficients": {
+    "base_model_meta-llama_Llama-3-70b-chat-hf": 2.9032,
+    "tool__delete_file": 3.2914,
+    "tool__create_calendar_event": 3.5161,
+    "tool__send_email": 3.5411,
+    "tool__read_file": 3.7811,
+    "tool__reserve_hotel": 4.0989,
+    "tool__update_password": 4.727,
+    "tool__send_money": 5.2224,
+    "tool__remove_user_from_slack": 6.2022,
+    "tool__post_webpage": 6.7364
+  },
+  "top_negative_coefficients": {
+    "tool__get_dietary_restrictions_for_all_restaurants": -4.2631,
+    "suite_banking": -2.5444,
+    "task_user_task_33": -2.5069,
+    "injection_task_injection_task_12": -2.4389,
+    "injection_task_injection_task_11": -2.3987,
+    "tool__get_rating_reviews_for_hotels": -2.3253,
+    "base_model_claude-3-5-sonnet-20241022": -2.3242,
+    "tool__read_inbox": -2.2543,
+    "attack_family_direct": -2.1362,
+    "tool__read_channel_messages": -2.1101
+  }
+}

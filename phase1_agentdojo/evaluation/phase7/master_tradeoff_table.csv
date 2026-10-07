@@ -1,0 +1,5 @@
+epsilon,accuracy,f1,roc_auc,minority_recall,IG_attack_categorical_acc,IG_attack_mse,closed_form_attack_categorical_acc,closed_form_attack_mse,training_time_sec,communication_mb
+1,0.8843,0.5359,0.8817,0.4746,1.0,0.0155,1.0,0.0,50.9,0.0
+3,0.8928,0.6167,0.8945,0.6125,0.9583,0.2108,1.0,0.0,50.9,0.0
+8,0.8928,0.6234,0.8967,0.6301,0.8333,0.2951,1.0,0.0,50.9,0.0
+inf,0.9296,0.7691,0.9616,0.8327,0.6111,0.6213,1.0,0.0,10.8116,0.0

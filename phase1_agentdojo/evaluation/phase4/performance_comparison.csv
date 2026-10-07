@@ -1,0 +1,4 @@
+model,accuracy,precision,recall,f1,roc_auc,pr_auc
+centralized_mlp,0.9296,0.7145,0.8327,0.7691,0.9616,0.8445
+federated_mlp,0.8816,0.5581,0.7661,0.6458,0.9201,0.6841
+gap (centralized - federated),0.048,0.1564,0.0666,0.1233,0.0415,0.1604

@@ -1,4 +1,4 @@
-# fed-agent-leakage
+# Fedlearning-AI agent security
 
 Gradient leakage attacks and DP-SGD defenses in federated learning on AI agent interaction logs (AgentDojo + LangChain synthetic data).
 

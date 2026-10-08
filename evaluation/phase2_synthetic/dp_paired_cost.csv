@@ -1,0 +1,16 @@
+epsilon,metric,mean,std
+1,accuracy,31.5,7.7
+1,breach_recall,36.1,56.8
+1,specificity,26.8,47.9
+1,f1,45.7,34.9
+1,roc_auc,32.6,16.7
+3,accuracy,18.2,13.7
+3,breach_recall,33.3,40.6
+3,specificity,2.9,17.0
+3,f1,31.2,33.6
+3,roc_auc,15.8,3.0
+8,accuracy,14.9,10.3
+8,breach_recall,21.8,26.3
+8,specificity,7.9,8.8
+8,f1,18.7,17.5
+8,roc_auc,12.0,1.9

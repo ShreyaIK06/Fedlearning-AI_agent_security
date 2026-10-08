@@ -1,0 +1,6 @@
+attack,exact_recoveries,overall_mse,median_mse,mse_improvement_vs_mean_guess,categorical_accuracy,tool_precision,tool_recall,numeric_mae_std_units,label_accuracy
+(training-mean guess),0/12,0.1115,0.1015,0.0,0.2222,0.0,0.0,0.7658,
+DLG,2/12,163.1673,139.5858,-1462.3839,0.3889,0.3496,0.6389,12.3507,0.5833
+iDLG,0/12,209.1175,264.5771,-1874.4933,0.4444,0.2489,0.6403,17.2494,1.0
+Inverting Gradients,8/12,0.33,0.0,-1.9596,0.7778,0.7351,0.8333,0.2921,1.0
+Closed-form,12/12,0.0,0.0,1.0,1.0,1.0,1.0,0.0,1.0

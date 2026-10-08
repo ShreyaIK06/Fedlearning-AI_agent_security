@@ -1,0 +1,5 @@
+attack,sensitive_recovered,sensitive_missed,false_sensitive_alarms,sensitive_recall
+DLG,8,4,15,0.667
+iDLG,10,2,23,0.833
+Inverting Gradients,9,3,7,0.75
+Closed-form,12,0,0,1.0

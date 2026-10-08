@@ -1,0 +1,3 @@
+view,model,CF_exact,CF_mean_cos,IG_mean_cos,identify_top1_CF,identify_top1_IG,identify_top1_nograd,secrets_total,secrets_CF,secrets_IG,secrets_nograd,chance_per_secret
+actions,federated,12/12,1.0,0.818,12/12,10/12,0/12,18,18/18,4/18,0/18,0.0067
+full,federated,12/12,1.0,0.831,12/12,7/12,0/12,24,24/24,3/24,0/24,0.0067

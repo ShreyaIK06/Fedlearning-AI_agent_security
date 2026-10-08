@@ -1,0 +1,7 @@
+view,epsilon,acc_cost_mean,acc_cost_std,auc_cost_mean,auc_cost_std
+actions,8,5.3,8.5,7.8,7.9
+actions,3,9.2,8.8,11.0,10.7
+actions,1,8.0,9.0,10.9,9.3
+full,8,7.1,8.0,7.6,8.2
+full,3,9.2,7.9,10.8,10.1
+full,1,9.4,6.8,13.4,6.7

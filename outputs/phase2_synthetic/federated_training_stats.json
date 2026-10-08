@@ -25,7 +25,7 @@
   "n_params": 17025,
   "best_round": 28,
   "best_val_roc_auc": 0.954,
-  "total_bytes_transmitted_mb": 20.7,
+  "total_bytes_transmitted_mb": 28.87,
   "config": {
     "hidden_dims": [
       128,
@@ -36,8 +36,9 @@
     "local_epochs": 3,
     "local_lr": 0.001,
     "local_batch_size": 64,
-    "early_stop_patience": 10,
+    "early_stop_patience": 25,
+    "warmup": 20,
     "best_round": 28,
-    "rounds_run": 38
+    "rounds_run": 53
   }
 }

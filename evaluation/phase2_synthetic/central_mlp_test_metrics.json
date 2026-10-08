@@ -57,8 +57,10 @@
     "dropout": 0.2,
     "lr": 0.001,
     "batch_size": 256,
+    "early_stop_patience": 25,
+    "warmup": 20,
     "best_epoch": 30,
-    "total_epochs_trained": 38,
-    "total_training_wall_time_sec": 1.0608
+    "total_epochs_trained": 55,
+    "total_training_wall_time_sec": 0.6752
   }
 }

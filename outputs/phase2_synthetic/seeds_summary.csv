@@ -1,0 +1,6 @@
+,accuracy,accuracy,recall,recall,f1,f1,roc_auc,roc_auc,weight_updates,weight_updates
+,mean,std,mean,std,mean,std,mean,std,mean,std
+model,,,,,,,,,,
+central_b256,0.6991,0.1603,0.7228,0.2403,0.7035,0.1561,0.8706,0.0717,53.2,30.4171
+central_b64,0.8124,0.0875,0.8035,0.1231,0.8098,0.0975,0.9108,0.0571,150.0,67.4833
+federated,0.7876,0.1424,0.7474,0.2637,0.7591,0.208,0.8854,0.09,864.0,385.8704

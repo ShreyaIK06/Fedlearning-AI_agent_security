@@ -4,9 +4,16 @@ phase2_train_central.py  -  Phase 2, centralized MLP baseline
 Mirrors Phase 1's src/phase2/04_train_mlp.py exactly - same SecurityMLP
 (imported unchanged), same settings:
   hidden (128, 64), dropout 0.2, Adam lr 1e-3, batch 256,
-  up to 60 epochs, early stop after 8 epochs w/o val ROC-AUC gain,
-  BCEWithLogitsLoss(pos_weight = n_neg / n_pos), threshold 0.5, seed 42.
-Only input_dim differs (67 vs 176).
+  up to 60 epochs, BCEWithLogitsLoss(pos_weight = n_neg / n_pos),
+  threshold 0.5, seed 42. Only input_dim differs (67 vs 176).
+
+TWO documented deviations from Phase 1 (small-data protocol, see phase2_seeds.py):
+  * EARLY_STOP_PATIENCE 8 -> 25: Phase 1's epochs were ~700 updates, ours are
+    2, so 8 epochs stopped training prematurely (2 of 5 seeds collapsed).
+  * WARMUP = 20: no checkpoint is selected (and patience doesn't count)
+    before epoch 20 - with ~90 val records ROC-AUC can peak by chance
+    before the 0.5 decision threshold has settled.
+  Over 5 seeds this cut the spread from +-16.0 to +-8.5 accuracy points.
 
 Also evaluates the best model on TEST (Phase 1 did this in a separate
 05_evaluate_test.py; same metrics function).
@@ -37,7 +44,8 @@ DROPOUT = 0.2
 LR = 1e-3
 BATCH_SIZE = 256
 MAX_EPOCHS = 60
-EARLY_STOP_PATIENCE = 8
+EARLY_STOP_PATIENCE = 25   # Phase 1: 8
+WARMUP = 20                # Phase 1: none
 
 
 def main():
@@ -61,7 +69,7 @@ def main():
           f"pos_weight={pos_weight.item():.3f}  steps/epoch={len(loader)}")
 
     hist = {"epoch": [], "train_loss": [], "val_loss": [], "val_roc_auc": [], "epoch_wall_time_sec": []}
-    best_auc, best_state, wait = -1.0, None, 0
+    best_auc, best_state, best_epoch, wait = -1.0, None, 0, 0
     for epoch in range(1, MAX_EPOCHS + 1):
         t0 = time.perf_counter()
         model.train(); tot = 0.0
@@ -80,11 +88,12 @@ def main():
 
         for k, v in zip(hist, (epoch, train_loss, val_loss, val_auc, time.perf_counter() - t0)):
             hist[k].append(v)
-        if val_auc > best_auc:
-            best_auc, wait = val_auc, 0
-            best_state = {k: v.clone() for k, v in model.state_dict().items()}
-        else:
-            wait += 1
+        if epoch >= WARMUP:
+            if val_auc > best_auc:
+                best_auc, best_epoch, wait = val_auc, epoch, 0
+                best_state = {k: v.clone() for k, v in model.state_dict().items()}
+            else:
+                wait += 1
         if epoch % 5 == 0 or epoch == 1:
             print(f"epoch {epoch:3d}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}  val_roc_auc={val_auc:.4f}")
         if wait >= EARLY_STOP_PATIENCE:
@@ -97,9 +106,8 @@ def main():
         p_te = torch.sigmoid(model(X_te)).numpy()
 
     noise = label_noise_ceiling()
-    best_epoch = int(hist["epoch"][int(np.argmax(hist["val_roc_auc"]))])
     cfg = {"hidden_dims": list(HIDDEN_DIMS), "dropout": DROPOUT, "lr": LR, "batch_size": BATCH_SIZE,
-           "best_epoch": best_epoch, "total_epochs_trained": len(hist["epoch"]),
+           "early_stop_patience": EARLY_STOP_PATIENCE, "warmup": WARMUP, "best_epoch": best_epoch, "total_epochs_trained": len(hist["epoch"]),
            "total_training_wall_time_sec": round(sum(hist["epoch_wall_time_sec"]), 4)}
 
     print()
@@ -124,6 +132,7 @@ def main():
     a1.axvline(best_epoch, color="gray", ls="--", alpha=.6, label="best epoch")
     a1.set_xlabel("epoch"); a1.set_ylabel("BCE loss"); a1.legend(); a1.set_title("Training/validation loss")
     a2.plot(hist["epoch"], hist["val_roc_auc"], color="green")
+    a1.axvspan(0, WARMUP, color="gray", alpha=.08); a2.axvspan(0, WARMUP, color="gray", alpha=.08)
     a2.axvline(best_epoch, color="gray", ls="--", alpha=.6)
     a2.set_xlabel("epoch"); a2.set_ylabel("val ROC-AUC"); a2.set_title("Validation ROC-AUC")
     fig.suptitle("Phase 2 (synthetic) - centralized MLP"); fig.tight_layout()

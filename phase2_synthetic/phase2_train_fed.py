@@ -6,9 +6,15 @@ Mirrors Phase 1's src/phase3/01_partition_clients.py + 02_federated_train.py:
   * each round: broadcast global weights -> each client trains locally
     (Phase 1's train_local_model, unchanged) -> size-weighted FedAvg
     (Phase 1's average_state_dicts, unchanged)
-  * up to 150 rounds, 3 local epochs, lr 1e-3, local batch 64,
-    early stop after 10 rounds w/o global val ROC-AUC gain, seed 42 (+round)
-  * best round's weights are kept
+  * up to 150 rounds, 3 local epochs, lr 1e-3, local batch 64, seed 42 (+round)
+  * best round's weights (global val ROC-AUC) are kept
+
+TWO documented deviations from Phase 1 (small-data protocol, see phase2_seeds.py):
+  * EARLY_STOP_PATIENCE 10 -> 25 rounds
+  * WARMUP = 20: no round is selected before round 20. Without it, seed 0
+    locked in round 2 (val AUC peaked by chance while the model still
+    called only 23% of runs breaches) -> 56.6% test accuracy; with it 86.7%.
+  Over 5 seeds this cut the spread from +-14.5 to +-7.0 accuracy points.
 
 Then evaluates on TEST and, if phase2_train_central.py has been run,
 prints the centralized-vs-federated "cost of federation".
@@ -40,7 +46,8 @@ NUM_ROUNDS = 150
 LOCAL_EPOCHS = 3
 LOCAL_LR = 1e-3
 LOCAL_BATCH_SIZE = 64
-EARLY_STOP_PATIENCE = 10
+EARLY_STOP_PATIENCE = 25   # Phase 1: 10
+WARMUP = 20                # Phase 1: none
 BYTES_PER_PARAM = 4
 
 
@@ -97,11 +104,12 @@ def main():
                         **{f"client_{s}_local_loss": losses[s] for s in SUITES},
                         **{f"client_{s}_local_time_sec": times[s] for s in SUITES}})
 
-        if val_auc > best_auc:
-            best_auc, best_round, wait = val_auc, rnd, 0
-            best_state = {k: v.clone() for k, v in gstate.items()}
-        else:
-            wait += 1
+        if rnd >= WARMUP:
+            if val_auc > best_auc:
+                best_auc, best_round, wait = val_auc, rnd, 0
+                best_state = {k: v.clone() for k, v in gstate.items()}
+            else:
+                wait += 1
         if rnd % 5 == 0 or rnd == 1:
             print(f"round {rnd:3d}  val_roc_auc={val_auc:.4f}")
         if wait >= EARLY_STOP_PATIENCE:
@@ -117,7 +125,7 @@ def main():
     noise = label_noise_ceiling()
     cfg = {"hidden_dims": list(HIDDEN_DIMS), "dropout": DROPOUT, "num_rounds_max": NUM_ROUNDS,
            "local_epochs": LOCAL_EPOCHS, "local_lr": LOCAL_LR, "local_batch_size": LOCAL_BATCH_SIZE,
-           "early_stop_patience": EARLY_STOP_PATIENCE, "best_round": best_round,
+           "early_stop_patience": EARLY_STOP_PATIENCE, "warmup": WARMUP, "best_round": best_round,
            "rounds_run": len(history)}
     print()
     fed = {}
@@ -144,6 +152,7 @@ def main():
     FIG_DIR.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(7, 4.5))
     ax.plot(hdf["round"], hdf["val_roc_auc"], marker="o", markersize=3)
+    ax.axvspan(0, WARMUP, color="gray", alpha=.08, label=f"warm-up ({WARMUP})")
     ax.axvline(best_round, color="gray", ls="--", alpha=.6, label=f"best round ({best_round})")
     ax.set_xlabel("Communication round"); ax.set_ylabel("Global model val ROC-AUC")
     ax.set_title("Phase 2 (synthetic) - FedAvg convergence, 4 suite clients"); ax.legend()

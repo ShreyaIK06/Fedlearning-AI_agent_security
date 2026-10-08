@@ -1,0 +1,5 @@
+suite,n,n_breach,accuracy,breach_recall
+banking,27,21,1.0,1.0
+slack,31,20,0.935,1.0
+travel,33,9,0.909,0.667
+workspace,22,7,0.818,0.429

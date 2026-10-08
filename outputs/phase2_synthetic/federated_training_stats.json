@@ -1,0 +1,43 @@
+{
+  "n_clients": 4,
+  "client_stats": {
+    "banking": {
+      "n_rows": 78,
+      "pct_of_train": 21.61,
+      "breach_rate": 0.5769
+    },
+    "slack": {
+      "n_rows": 94,
+      "pct_of_train": 26.04,
+      "breach_rate": 0.5851
+    },
+    "travel": {
+      "n_rows": 91,
+      "pct_of_train": 25.21,
+      "breach_rate": 0.3846
+    },
+    "workspace": {
+      "n_rows": 98,
+      "pct_of_train": 27.15,
+      "breach_rate": 0.4898
+    }
+  },
+  "n_params": 17025,
+  "best_round": 28,
+  "best_val_roc_auc": 0.954,
+  "total_bytes_transmitted_mb": 20.7,
+  "config": {
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "dropout": 0.2,
+    "num_rounds_max": 150,
+    "local_epochs": 3,
+    "local_lr": 0.001,
+    "local_batch_size": 64,
+    "early_stop_patience": 10,
+    "best_round": 28,
+    "rounds_run": 38
+  }
+}

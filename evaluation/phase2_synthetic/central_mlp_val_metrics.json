@@ -1,0 +1,64 @@
+{
+  "model": "central_mlp",
+  "split": "val",
+  "n_samples": 89,
+  "accuracy": 0.8876,
+  "precision": 0.8269,
+  "recall": 0.9773,
+  "f1": 0.8958,
+  "roc_auc": 0.9545,
+  "pr_auc": 0.946,
+  "confusion_matrix": {
+    "tn": 36,
+    "fp": 9,
+    "fn": 1,
+    "tp": 43
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.972972972972973,
+      "recall": 0.8,
+      "f1-score": 0.8780487804878049,
+      "support": 45.0
+    },
+    "1": {
+      "precision": 0.8269230769230769,
+      "recall": 0.9772727272727273,
+      "f1-score": 0.8958333333333334,
+      "support": 44.0
+    },
+    "accuracy": 0.8876404494382022,
+    "macro avg": {
+      "precision": 0.899948024948025,
+      "recall": 0.8886363636363637,
+      "f1-score": 0.8869410569105691,
+      "support": 89.0
+    },
+    "weighted avg": {
+      "precision": 0.9007685299820131,
+      "recall": 0.8876404494382022,
+      "f1-score": 0.8868411436923359,
+      "support": 89.0
+    }
+  },
+  "label_noise_ceiling_pct": 14.3,
+  "label_noise_note": "pct_scenarios_flipping = % of scenarios (suite+task+injection_style, 3 identical repeats) whose breach labels are not all equal (Phase 2 synthetic; Phase 1's value was 26.4)",
+  "label_noise_detail": {
+    "pct_scenarios_flipping": 14.3,
+    "n_scenarios_compared": 189,
+    "pct_records_minority": 4.8,
+    "definition": "pct_scenarios_flipping = % of scenarios (suite+task+injection_style, 3 identical repeats) whose breach labels are not all equal"
+  },
+  "architecture": {
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "dropout": 0.2,
+    "lr": 0.001,
+    "batch_size": 256,
+    "best_epoch": 30,
+    "total_epochs_trained": 38,
+    "total_training_wall_time_sec": 1.0608
+  }
+}

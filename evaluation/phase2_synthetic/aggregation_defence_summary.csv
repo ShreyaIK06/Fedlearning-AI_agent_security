@@ -1,0 +1,29 @@
+path,setting,batch_per_client,updates,records_per_update,exact_rate,near_rate,p1_neuron_exact,neurons_used,best_cos,id_recall,id_precision
+Path 1 (features),S1 FedSGD,1,80,1.0,1.0,1.0,1.0,80.6125,1.0,,
+Path 1 (features),S1 FedSGD,2,80,2.0,1.0,1.0,0.5875,100.075,1.0,,
+Path 1 (features),S1 FedSGD,4,80,4.0,0.9281,0.9469,0.2375,113.5875,0.9954,,
+Path 1 (features),S1 FedSGD,8,80,8.0,0.6094,0.7516,0.15,120.0375,0.9736,,
+Path 1 (features),S1 FedSGD,16,80,16.0,0.2383,0.3859,0.025,123.0375,0.9306,,
+Path 1 (features),S1 FedSGD,32,80,32.0,0.1035,0.1902,0.0,124.4,0.8948,,
+Path 1 (features),S1 FedSGD,64,80,64.0,0.0551,0.1086,0.0,124.95,0.874,,
+Path 1 (features),S2 FedSGD + SecAgg,1,20,4.0,1.0,1.0,0.2,122.5,1.0,,
+Path 1 (features),S2 FedSGD + SecAgg,4,20,16.0,0.0844,0.2312,0.0,126.85,0.7682,,
+Path 1 (features),S2 FedSGD + SecAgg,16,20,64.0,0.0047,0.0172,0.0,127.7,0.6517,,
+Path 1 (features),S3 FedAvg update (adam),whole client,4,90.25,0.0,0.0179,0.0,125.0,0.7217,,
+Path 1 (features),S4 FedAvg + SecAgg (adam),whole client,1,361.0,0.0,0.0,0.0,128.0,0.4948,,
+Path 1 (features),S3 FedAvg update (sgd),whole client,4,90.25,0.0365,0.082,0.0,124.75,0.8739,,
+Path 1 (features),S4 FedAvg + SecAgg (sgd),whole client,1,361.0,0.0,0.0,0.0,128.0,0.6464,,
+"Path 2 (embeddings, full)",S1 FedSGD,1,80,1.0,1.0,1.0,1.0,65.2125,1.0,1.0,1.0
+"Path 2 (embeddings, full)",S1 FedSGD,2,80,2.0,1.0,1.0,0.675,90.6375,1.0,1.0,1.0
+"Path 2 (embeddings, full)",S1 FedSGD,4,80,4.0,0.9594,0.9781,0.2625,110.6375,0.9986,0.9844,1.0
+"Path 2 (embeddings, full)",S1 FedSGD,8,80,8.0,0.6219,0.7875,0.1125,120.0125,0.9693,0.8,0.9984
+"Path 2 (embeddings, full)",S1 FedSGD,16,80,16.0,0.2141,0.4281,0.025,123.3375,0.8914,0.4586,0.999
+"Path 2 (embeddings, full)",S1 FedSGD,32,80,32.0,0.043,0.2,0.0,124.5625,0.8434,0.2359,1.0
+"Path 2 (embeddings, full)",S1 FedSGD,64,80,64.0,0.0037,0.0764,0.0,124.675,0.8101,0.1025,0.9988
+"Path 2 (embeddings, full)",S2 FedSGD + SecAgg,1,20,4.0,0.9875,0.9875,0.45,121.7,0.9862,0.9875,1.0
+"Path 2 (embeddings, full)",S2 FedSGD + SecAgg,4,20,16.0,0.1,0.2812,0.05,128.0,0.671,0.3094,1.0
+"Path 2 (embeddings, full)",S2 FedSGD + SecAgg,16,20,64.0,0.0008,0.0477,0.0,128.0,0.4807,0.0602,1.0
+"Path 2 (embeddings, full)",S3 FedAvg update (adam),whole client,4,90.25,0.0,0.0,0.0,125.0,0.6224,0.0,
+"Path 2 (embeddings, full)",S4 FedAvg + SecAgg (adam),whole client,1,361.0,0.0,0.0,0.0,128.0,0.4311,0.0,
+"Path 2 (embeddings, full)",S3 FedAvg update (sgd),whole client,4,90.25,0.0027,0.0719,0.0,124.75,0.8156,0.1093,1.0
+"Path 2 (embeddings, full)",S4 FedAvg + SecAgg (sgd),whole client,1,361.0,0.0,0.0028,0.0,128.0,0.4727,0.0055,1.0

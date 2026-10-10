@@ -1,0 +1,13 @@
+path,client_opt,dropout,k,attacks,records,ig_exact_rate,ig_near_rate,ig_mean_cos,fit,oracle_fit,cf_exact_rate,id_recall,id_precision
+Path 1 (features),system,0.2,1,12,1.0,0.0,0.0,0.6765,0.7162,0.9179,0.0,,
+Path 1 (features),system,0.2,4,8,4.0,0.0,0.0,0.3032,0.5497,0.7998,0.0,,
+Path 1 (features),system,0.2,8,8,8.0,0.0,0.0,0.3025,0.6007,0.7657,0.0,,
+Path 1 (features),system,0.0,1,12,1.0,0.0,0.0,0.6199,0.743,1.0,0.0,,
+Path 1 (features),system,0.0,4,8,4.0,0.0,0.0,0.3592,0.64,1.0,0.0,,
+Path 1 (features),system,0.0,8,8,8.0,0.0,0.0,0.2397,0.6261,1.0,0.0,,
+"Path 2 (embeddings, full)",system,0.2,1,12,1.0,0.0,0.0,0.3704,0.4249,0.9303,0.1667,0.0,
+"Path 2 (embeddings, full)",system,0.2,4,8,4.0,0.0,0.0,0.3589,0.5043,0.8081,0.0,0.0,
+"Path 2 (embeddings, full)",system,0.2,8,8,8.0,0.0,0.0,0.3247,0.5139,0.7397,0.0,0.0,
+"Path 2 (embeddings, full)",system,0.0,1,12,1.0,0.0,0.0,0.5517,0.6611,1.0,0.0,0.0,
+"Path 2 (embeddings, full)",system,0.0,4,8,4.0,0.0,0.0,0.3215,0.5061,1.0,0.0,0.0,
+"Path 2 (embeddings, full)",system,0.0,8,8,8.0,0.0,0.0,0.3066,0.5558,1.0,0.0,0.0,

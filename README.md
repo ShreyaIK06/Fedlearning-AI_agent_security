@@ -4,8 +4,6 @@ Federated learning (FL) lets organisations jointly train a model that detects pr
 
 **In short:** a single shared gradient can reveal a client's training record exactly, including sensitive content such as account numbers and email addresses. DP-SGD did not prevent this in our experiments; multi-step local training (standard FedAvg) was the setting that held up best.
 
-**Team:** Shreya, Niharika, Jagath · **Guide:** Ms. Madhushree, Department of Cybersecurity, NMAMIT
-
 ## Project structure
 
 The project has two phases that share the same model, FedAvg implementation and attack code.

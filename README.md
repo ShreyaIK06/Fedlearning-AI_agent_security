@@ -51,7 +51,7 @@ python summary.py banking
 python phase2_split.py && python phase2_features.py
 python phase2_train_central.py && python phase2_train_fed.py && python phase2_seeds.py
 python phase2_attacks.py
-python phase2_dp.py --lr 1e-2 --batch 64 --epochs 60 --baseline-tuned
+python phase2_dp.py --lr 1e-2 --batch 64 --epochs 60 --baseline-tuned --delta 1e-5
 python phase2_embed.py && python phase2_p2_train.py && python phase2_p2_attacks.py && python phase2_p2_dp.py
 python phase2_aggregation.py
 python phase2_fedavg_attack.py

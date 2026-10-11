@@ -1,0 +1,5 @@
+epsilon,weight_norm,IG_exact,IG_median_mse,IG_cat_acc,IG_tool_P,IG_tool_R,CF_exact,CF_cat_acc,CF_exact_nonzero_grad,zero_grad_victims,max_abs_logit,CF_max_abs_error,label_acc
+1,26.496,11/12,0.0,1.0,0.94,1.0,12/12,1.0,12/12,0,4.7,0.0e+00,1.0
+3,24.795,9/12,0.0,0.833,0.816,0.917,12/12,1.0,12/12,0,6.7,0.0e+00,1.0
+8,26.167,7/12,0.0,0.667,0.688,0.868,12/12,1.0,12/12,0,10.7,6.0e-08,1.0
+inf,23.501,0/12,1.0654,0.222,0.196,0.408,9/12,0.861,9/9,3,25.4,1.0e+00,0.75

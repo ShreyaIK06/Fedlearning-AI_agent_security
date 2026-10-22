@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 data/raw_120b/
 phase1_agentdojo/data/
+phase1_agentdojo/outputs/phase1/01_loaded.pkl
+phase1_agentdojo/outputs/phase1/02_scoped.pkl
+phase1_diff.txt

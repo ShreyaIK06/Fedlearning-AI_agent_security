@@ -173,6 +173,8 @@ def train_dpfedavg(d, seed, eps):
         auc = roc_auc_score(d["y_val"], predict(g, d["X_val"]))
         if rnd >= CFG["warmup"] and auc > best:
             best, best_state = auc, copy.deepcopy(gstate)
+    if best_state is None:              # fewer rounds than the warm-up: keep the last model
+        best_state = copy.deepcopy(gstate)
     g.load_state_dict(best_state); g.eval()
     eps_real = {s: eps_for(sig[s], len(clients[s][0])) for s in SUITES}
     return g, sig, eps_real

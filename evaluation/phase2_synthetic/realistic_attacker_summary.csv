@@ -1,0 +1,9 @@
+view,template,secrets,extracted,top5,median_rank,candidates,chance,template_unavailable
+actions,own_text,18,18,18,1.0,148.88888888888889,0.0067,0.0
+actions,sibling_run,18,3,4,37.0,148.88888888888889,0.0067,0.0
+actions,other_task,18,0,0,40.5,148.88888888888889,0.0067,0.0
+actions,bare_value,18,0,1,30.0,148.88888888888889,0.0067,0.0
+full,own_text,24,24,24,1.0,148.875,0.0067,0.0
+full,sibling_run,24,6,9,19.0,148.875,0.0067,0.0
+full,other_task,24,0,2,29.0,148.875,0.0067,0.0
+full,bare_value,24,1,3,24.0,148.875,0.0067,0.0

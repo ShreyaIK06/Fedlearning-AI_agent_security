@@ -2,7 +2,7 @@
 
 Federated learning (FL) lets organisations jointly train a model that detects prompt-injection attacks on AI agents, without sharing their agent logs. This project tests whether those logs actually stay private. We train breach-detection models with FedAvg on agent interaction logs, attack the shared model updates with gradient-inversion attacks, and evaluate common defences.
 
-**In short:** a single shared gradient can reveal a client's training record exactly, including sensitive content such as account numbers and email addresses. Where differential privacy is applied decides whether it helps: DP-SGD used only during training does not protect the updates clients send afterwards, while DP applied inside each client (DP-FedAvg) stopped every attack we tested, at an accuracy cost that depends strongly on how much data each client holds.
+**In short:** a single shared gradient can reveal a client's training record exactly. When the record is a text embedding, an attacker who can guess the surrounding text can then recover secrets in it, such as account numbers and email addresses; without that knowledge, recovery mostly fails. A malicious server that rigs the model can still rebuild many records from large batches. Where differential privacy is applied decides whether it helps: DP-SGD used only during training does not protect the updates clients send afterwards, while DP applied inside each client (DP-FedAvg) stopped every attack we tested, including the malicious server, at an accuracy cost that depends strongly on how much data each client holds.
 
 ## Project structure
 
@@ -57,6 +57,8 @@ python phase2_aggregation.py
 python phase2_fedavg_attack.py
 python phase2_dpfedavg.py                    # DP-FedAvg (DP inside each client), Phase 2
 python phase1_dpfedavg.py                    # DP-FedAvg on Phase 1's AgentDojo data
+python phase2_robbing_fed.py                 # malicious server ("Robbing the Fed"); add --agentdojo for Phase 1 data
+python phase2_realistic_attacker.py          # secret extraction when the attacker does not know the victim's text
 ```
 
 Results are written to `evaluation/` and `outputs/` (Phase 1 DP-FedAvg: `phase1_agentdojo/evaluation/dpfedavg/`).
@@ -64,5 +66,5 @@ Results are written to `evaluation/` and `outputs/` (Phase 1 DP-FedAvg: `phase1_
 ## Limitations
 
 - Phase 2 is small (563 usable runs), generated with a single LLM on synthetic tasks.
-- Attacks assume an honest-but-curious server and, in places, a well-informed attacker; results are upper bounds.
+- Most attacks assume an honest-but-curious server (one experiment tests a malicious one). Secret-extraction numbers depend heavily on how much of the victim's text the attacker already knows; the headline figures are upper bounds.
 - The models detect breaches in completed runs; they do not predict them in advance.
